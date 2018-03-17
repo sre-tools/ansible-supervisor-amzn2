@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+
+#  vars:
+#    - supervisor_services:
+#        celery:
+#          command:        celery -A tasks worker --loglevel=info
+#          directory:      /opt/celery_app
+#          process_name:   celery_worker
+#          num_procs:      2
+#          autostart:      true
+#          stdout_logfile: /var/log/supervisor/celery-app.log
+#          stderr_logfile: /var/log/supervisor/celery-app.err
+        
+  roles:
+    - role: ansible-role-supervisor
