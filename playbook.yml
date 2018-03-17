@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-
+  become: yes
 #  vars:
 #    - supervisor_services:
 #        celery:
@@ -11,6 +11,5 @@
 #          autostart:      true
 #          stdout_logfile: /var/log/supervisor/celery-app.log
 #          stderr_logfile: /var/log/supervisor/celery-app.err
-        
-  roles:
-    - role: ansible-role-supervisor
+  roles: 
+   - role: ansible-supervisor-amzn2

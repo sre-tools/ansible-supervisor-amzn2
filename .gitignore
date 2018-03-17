@@ -3,3 +3,4 @@
 *.sw0
 .vagrant
 .idea*
+*.retry
