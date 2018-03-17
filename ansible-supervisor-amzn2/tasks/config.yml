@@ -23,6 +23,11 @@
     mode="0755"
   notify: supervisor restart
 
+- name: Add supervisod to services that start on boot
+  service:
+   name: "{{supervisor_service}}"
+   enabled: yes
+
 #  notify: supervisor restart
 
 #- name: Supervisor configuration directories
