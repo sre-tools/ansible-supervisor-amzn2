@@ -1,0 +1,11 @@
+; << Ansible managed file >>
+
+[supervisord]
+{{supervisor_cfg_daemon|default(supervisor_cfg_daemon_default)}}
+
+[supervisorctl]
+{{supervisor_cfg_ctl|default(supervisor_cfg_ctl_default)}}
+
+[include]
+files = /etc/supervisor/conf.d/*.conf
+

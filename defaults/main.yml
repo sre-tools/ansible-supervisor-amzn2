@@ -1,0 +1,46 @@
+---
+#
+# Supervisor role
+#
+
+# Enable supervisor service
+supervisor_enabled: true
+
+supervisor_cfg_loglevel: info
+
+supervisor_cfg_daemon_default: |
+  logfile     = /var/log/supervisor/supervisord.log
+  loglevel    = {{supervisor_cfg_loglevel}}
+  childlogdir = /var/log/supervisor
+  pidfile     = /var/run/supervisord.pid
+  minfds      = 1024
+  minprocs    = 200
+
+supervisor_cfg_ctl_default: |
+  serverurl = unix:///var/run/supervisor.sock
+
+# Supervisor commands
+#  It's a hash that represents commands that will be monitored by supervisor,
+#  which in turn, contains a set of parameters that will configure the program
+#  to be run.
+#  You should define this in a vars / group_vars file 
+#
+#supervisor_services:
+#  celery:
+#    command:        some_command
+#    directory:      /app/prefix
+#    process_name:   program_name
+#    num_procs:      2
+#    autostart:      true
+#    stdout_logfile: /some/place.log
+#    stderr_logfile: /some/err_place.log
+
+supervisor_services: { }
+
+# The following toggle will start supervisor on a plabook execution
+# or prevent it (even handlers).
+# This might turn handy when building images that shouldn't start the
+# configured supervisor services
+supervisor_started: true
+
+# vi:ts=2:sw=2:et:ft=yaml
