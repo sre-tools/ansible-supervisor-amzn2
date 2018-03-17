@@ -9,10 +9,10 @@
 - name: Supervisord initi script copying
   template:
     src=supervisor_init_script.j2
-    dest="{{supervisor_init_script}}"
+    dest="{{supervisord_init_script}}"
 
 - name: Make init script executable by all
-  shell: chmod a+x "{{supervisor_init_script}}"
+  shell: chmod a+x "{{supervisord_init_script}}"
   notify: supervisor restart
 
 #  notify: supervisor restart
