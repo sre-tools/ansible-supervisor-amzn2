@@ -16,13 +16,23 @@
 
 - name: Copy supervisord.conf.j2 from template to etc>supervisor>supervisord.conf
   template:
-    src: "{{item.src}}"
-    dest: "{{item.dest}}"
+    src="{{item.src}}"
+    dest="{{item.dest}}"
     owner: "root"
     group: "root"
     mode: "0755"
   with_items:
    - { src: templates/etc/supervisor/supervisord.conf.j2, dest: /etc/supervisor/supervisord.conf }
+   - { src: templates/etc/supervisor/conf.d/service.conf.j2, dest: /etc/supervisor/conf.d/service.conf }
+
+- name: Copy service.conf.j2 from template to etc>supervisor>conf.d>service.conf
+  template:
+    src="{{item.src}}"
+    dest="{{item.dest}}"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  with_items:
    - { src: templates/etc/supervisor/conf.d/service.conf.j2, dest: /etc/supervisor/conf.d/service.conf }
 
 #- name: Generate Supervisord config from python script echo_supervisord_conf
