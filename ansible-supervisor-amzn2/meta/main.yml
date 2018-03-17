@@ -1,19 +1,12 @@
 ---
 galaxy_info:
-  author: Emiliano Castagnari
-  description: Ansible role for Supervisor
-  license: Apache
-  min_ansible_version: 1.8
+  author: Muthukumar Ramaiyah
+  description: Ansible role for Supervisor Amazon Linux 2
+  min_ansible_version: 2.4
   platforms:
-  - name: Ubuntu
+  - name: Amazon Linux 2
     versions:
-      - trusty
-  - name: CentOS
-    versions:
-      - 6
-  - name: Amazon Linux
-    versions:
-    - 2015.03
+      - Candidate
   categories:
   - system
   - monitoring

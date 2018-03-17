@@ -1,6 +1,5 @@
 # Ansible role for Supervisor
 
-[![Build Status](https://travis-ci.org/torian/ansible-role-supervisor.svg)](https://travis-ci.org/torian/ansible-role-supervisor)
 
 This role will install [Supervisor](https://supervisord.org/), a process 
 control system
@@ -8,14 +7,12 @@ control system
 
 ## Tested on
 
-  * Ubuntu trusty
-  * Amazon Linux 2015.03
+  * Amazon Linux 2 EC2 Instance
 
 
 ## Defaults
 
-  * `supervisor_cfg_loglevel`: info
-  * `supervisor_services`: `{}`
+  * `supervisor_services`: `{welcome.conf}`
 
 
 ## Usage
@@ -26,31 +23,22 @@ specify any supervisor parameter you need.
 
 
 ### Running a command
+Refer this [playbook](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/playbook.yml)
 
 ```
----
+`---
 - hosts: localhost
-
-  vars:
-    - supervisor_services:
-        celery:
-          command:        celery -A tasks worker --loglevel=info
-          directory:      /opt/celery_app
-          process_name:   celery_worker
-          num_procs:      2
-          autostart:      true
-          stdout_logfile: /var/log/supervisor/celery-app.log
-          stderr_logfile: /var/log/supervisor/celery-app.err
-        
+  become: yes
   roles:
-    - role: ansible-role-supervisor
-
+   - role: ansible-supervisor-amzn2
 ```
 
+### Sample monitored program
+Refer this [welcome.conf](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/ansible-supervisor-amzn2/templates/etc/supervisor/conf_d/welcome.conf.j2)
 
-## TODO
+Note: extension should be is .conf
 
-  * Make a template for the main supervisord config
-  * Event listeners
-  * more things ?
-
+### Include directory for monitoring
+```
+/etc/supervisor/conf_d/
+```

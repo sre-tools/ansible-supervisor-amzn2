@@ -30,7 +30,7 @@
 
 - name: Supervisord initi script copying
   template:
-    src: supervisord_init_script_lsb.j2
+    src: supervisord_init_red_hat_amzn.j2
     dest: "{{supervisord_init_script}}"
 
 #- name: Make init script executable by all
@@ -47,37 +47,7 @@
   service:
    name: "{{supervisor_service}}"
    enabled: yes
-  notify: supervisor restart
-#  notify: supervisor restart
+  notify: supervisor start
 
-#- name: Supervisor configuration directories
-#  file:
-#    state=directory
-#    dest="{{supervisor_services_dir}}"
-#    owner="root"
-#    group="root"
-#    mode="0755"
-#  with_items:
-#    - /etc/supervisor
-#    - /etc/supervisor/conf.d
-#
-#- name: Supervisor configuration
-#  template:
-#    src=etc/supervisor/supervisord.conf.j2
-#    dest="{{supervisor_cfg}}"
-#    owner="root"
-#    group="root"
-#    mode="0644"
-#  notify: supervisor restart
-#
-#- name: Supervisor configuration
-#  template:
-#    src=etc/supervisor/conf.d/welcome.conf.j2
-#    dest="{{supervisor_services_dir}}/{{item.key}}.conf"
-#    owner="{{item.value.user|default('root')}}"
-#    group="{{item.value.user|default('root')}}"
-#    mode="0640"
-#  with_dict: "{{supervisor_services}}"
-#  notify: supervisor restart
 
 # vi:ts=2:sw=2:et:ft=yaml
