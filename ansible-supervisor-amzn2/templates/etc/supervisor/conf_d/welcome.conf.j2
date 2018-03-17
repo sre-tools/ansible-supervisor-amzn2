@@ -1,2 +1,7 @@
 [program:welcome]
 command=echo "hi muthu"
+autostart=yes
+autorestart=yes
+startretries=3
+stderr_logfile=/var/log/welcome/welcome.err.log
+stdout_logfile=/var/log/welcome/welcome.log
