@@ -3,7 +3,7 @@
 # Supervisor configuration
 #
 
-- name: create supervisor and conf.d under etc>supervisor>conf.d
+- name: create supervisor and conf.d under etc>supervisor>conf_d
   file:
     state: directory
     dest: "{{item}}"
@@ -14,16 +14,16 @@
    - /etc/supervisor
    - /etc/supervisor/conf_d
 
-- name: Copy supervisord.conf.j2 and service.conf from templates
+- name: Copy supervisord.conf.j2 and welcome.conf.j2 from templates
   template:
-    src: "{{item.s}}"
-    dest: "{{item.d}}"
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
     owner: "root"
     group: "root"
     mode: "0755"
   with_items:
-   - { s: templates/etc/supervisor/supervisord.conf.j2, d: /etc/supervisor/supervisord.conf }
-   - { s: templates/etc/supervisor/conf_d/service.conf.j2, d: /etc/supervisor/conf_d/service.conf }
+   - { src: templates/etc/supervisor/supervisord.conf.j2, dest: /etc/supervisor/supervisord.conf }
+   - { src: templates/etc/supervisor/conf_d/welcome.conf.j2, dest: /etc/supervisor/conf_d/welcome.conf }
 
 #- name: Generate Supervisord config from python script echo_supervisord_conf
 #  shell: echo_supervisord_conf > /etc/supervisord.conf
@@ -72,7 +72,7 @@
 #
 #- name: Supervisor configuration
 #  template:
-#    src=etc/supervisor/conf.d/service.conf.j2
+#    src=etc/supervisor/conf.d/welcome.conf.j2
 #    dest="{{supervisor_services_dir}}/{{item.key}}.conf"
 #    owner="{{item.value.user|default('root')}}"
 #    group="{{item.value.user|default('root')}}"
