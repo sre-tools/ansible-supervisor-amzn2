@@ -6,6 +6,16 @@
 - name: Generate Supervisord config from python script echo_supervisord_conf
   shell: echo_supervisord_conf > /etc/supervisord.conf
 
+- name: Supervisord initi script copying
+  template:
+    src=supervisor_init_script.j2
+    dest="{{supervisor_init_script}}"
+
+- name: Make init script executable by all
+  shell: chmod a+x "{{supervisor_init_script}}"
+  notify: supervisor restart
+
+#  notify: supervisor restart
 
 #- name: Supervisor configuration directories
 #  file:
