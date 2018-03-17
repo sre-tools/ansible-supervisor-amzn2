@@ -15,7 +15,7 @@
    - /etc/supervisor/conf.d
 
 - name: Copy supervisord.conf.j2 from template to etc>supervisor>supervisord.conf
-  file:
+  template:
     src: "{{item.src}}"
     dest: "{{item.dest}}"
     owner: "root"
@@ -41,13 +41,13 @@
   file:
     path: "{{supervisord_init_script}}"
     mode: "a+x"
-  notify: supervisor restart
+
 
 - name: Add supervisod to services that start on boot
   service:
    name: "{{supervisor_service}}"
    enabled: yes
-
+  notify: supervisor restart
 #  notify: supervisor restart
 
 #- name: Supervisor configuration directories
