@@ -17,10 +17,8 @@
 
 - name: Make init script executable by all
   file:
-    dest="{{supervisord_init_script}}"
-    owner="root"
-    group="root"
-    mode="0755"
+    path: "{{supervisord_init_script}}"
+    mode: "a+x"
   notify: supervisor restart
 
 - name: Add supervisod to services that start on boot
