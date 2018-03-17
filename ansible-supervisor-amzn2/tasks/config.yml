@@ -3,13 +3,35 @@
 # Supervisor configuration
 #
 
-- name: Generate Supervisord config from python script echo_supervisord_conf
-  shell: echo_supervisord_conf > /etc/supervisord.conf
+- name: create supervisor and conf.d under etc>supervisor>conf.d
+  file:
+    state: directory
+    dest: "{{item}}"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  with_items:
+   - /etc/supervisor
+   - /etc/supervisor/conf.d
+
+- name: Copy supervisord.conf.j2 from template to etc>supervisor>supervisord.conf
+  file:
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  with_items:
+   - { src: templates/etc/supervisor/supervisord.conf.j2, dest: /etc/supervisor/supervisord.conf }
+   - { src: templates/etc/supervisor/conf.d/service.conf.j2, dest: /etc/supervisor/conf.d/service.conf }
+
+#- name: Generate Supervisord config from python script echo_supervisord_conf
+#  shell: echo_supervisord_conf > /etc/supervisord.conf
 
 - name: Supervisord initi script copying
   template:
-    src=supervisord_init_script_lsb.j2
-    dest="{{supervisord_init_script}}"
+    src: supervisord_init_script_lsb.j2
+    dest: "{{supervisord_init_script}}"
 
 #- name: Make init script executable by all
 #  shell: chmod a+x "{{supervisord_init_script}}"

@@ -11,7 +11,7 @@ supervisor_packages:
 supervisor_prefix: /etc
 supervisor_cfg: "{{supervisor_prefix}}/supervisord.conf"
 supervisord_init_script: "{{supervisor_prefix}}/init.d/{{supervisor_service}}"
-supervisor_services_dir: "{{supervisor_prefix}}/supervisor/conf.d"
+#supervisor_services_dir: "{{supervisor_prefix}}/supervisor/conf.d"
 
 supervisor_service: supervisord
 

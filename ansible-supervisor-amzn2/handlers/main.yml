@@ -1,9 +1,7 @@
 ---
-
 - name: supervisor start
   service: name="{{supervisor_service}}" state=started
   when: supervisor_started
-
 - name: supervisor stop
   service: name="{{supervisor_service}}" state=stopped
 
