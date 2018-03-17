@@ -17,6 +17,7 @@
 
 - name: Make init script executable by all
   file:
+    dest="{{supervisord_init_script}}"
     owner="root"
     group="root"
     mode="0755"
