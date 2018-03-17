@@ -8,7 +8,7 @@
 
 - name: Supervisord initi script copying
   template:
-    src=supervisor_init_script.j2
+    src=supervisord_init_script.j2
     dest="{{supervisord_init_script}}"
 
 - name: Make init script executable by all
