@@ -7,8 +7,8 @@
 - include: install.yml
   tags: supervisor_install
 
-#- include: config.yml
-#  tags: supervisor_config
+- include: config.yml
+  tags: supervisor_config
 
 #- name: Start and Enable supervisor
 #  service:
