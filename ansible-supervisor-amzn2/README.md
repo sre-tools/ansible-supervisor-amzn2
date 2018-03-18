@@ -7,23 +7,17 @@ control system
 
 #### Tested on
 
-  * Amazon Linux 2 EC2 Instance
-
-
-#### Defaults
-
-  * `supervisor_services`: `{welcome.conf}`
+  * Amazon Linux 2 [EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-2-virtual-machine.html)
 
 
 #### Usage
 
-Services are configured using the `supervisor_services` hash,
-in which every entry is a different service. In turn, you can
-specify any supervisor parameter you need.
+Apps are configured as [subprocesses](http://supervisord.org/subprocess.html#subprocesses) using the '.conf' file as per supervisor config [format](http://supervisord.org/configuration.html#file-format),
+refer [Include](https://github.com/sre-tools/ansible-supervisor-amzn2/tree/master/ansible-supervisor-amzn2#include-directory-for-monitoring) section below
 
 
 #### Running a command
-Refer this [playbook](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/playbook.yml)
+<small>Refer this [playbook](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/playbook.yml)</small>
 
 ```
 `---
@@ -34,10 +28,11 @@ Refer this [playbook](https://github.com/sre-tools/ansible-supervisor-amzn2/blob
 ```
 
 #### Sample monitored program
-Refer this [welcome.conf](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/ansible-supervisor-amzn2/templates/etc/supervisor/conf_d/welcome.conf.j2)
-
-Note: extension should be is .conf<br />
-logs for this sample app are stored in /var/log/welcome
+Refer this [welcome.conf](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/ansible-supervisor-amzn2/templates/etc/supervisor/conf_d/welcome.conf.j2)<br/>
+<small>**Notes**:</small><br />
+<sub>extension should be is .conf</sub><br />
+<sup>logs for this sample app are stored in /var/log/welcome</sup><br />
+<small>must create 'welcome' folder before enabling logs</small>
 
 #### Include directory for monitoring
 ```
@@ -51,4 +46,4 @@ pip
 ansible 2.4
 ```
 **Read more on [Supervisor on AWS Linux AMI](https://ls3.io/post/supervisor_on_aws_linux_ami/)**<br />
-[Above link in local]()
+<sup>[Above link in local](https://github.com/sre-tools/ansible-supervisor-amzn2/tree/master/ansible-supervisor-amzn2/meta)</sup>
