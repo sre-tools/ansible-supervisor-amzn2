@@ -15,13 +15,14 @@
     name: "supervisor"
   when: ansible_distribution == 'Amazon'
 
-- name: cleanup supervisor and conf.d under etc>supervisor>conf_d
+- name: cleanup supervisor and conf.d under etc>supervisor>conf_d and var/log/supervisor folder
   file:
     state: absent
     dest: "{{item}}"
   with_items:
    - /etc/supervisor
    - /etc/init.d/supervisord
+   - /var/log/supervisor
 
 - name: suggestion to reboot machine now
   debug:

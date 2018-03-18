@@ -45,6 +45,14 @@
 - name: Add superviord on in chkconfig
   command: chkconfig supervisord on
 
+- name: Create supervisor folder in /var/log/
+  file:
+    state: directory
+    dest: /var/log/supervisor
+    owner: "root"
+    group: "root"
+    mode: "0744"
+
 - name: start supervisord
   command: supervisord
 
