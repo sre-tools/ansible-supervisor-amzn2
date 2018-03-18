@@ -42,11 +42,11 @@
     path: "{{supervisord_init_script}}"
     mode: "a+x"
 
+- name: Add supervisord to services that start on boot
+  command: chkconfig --add supervisord 
 
-- name: Add supervisod to services that start on boot
-  service:
-   name: "{{supervisor_service}}"
-   enabled: yes
+- name: Add superviord on in chkconfig
+  command: chkconfig supervisord on
 
 - name: start supervisord
   command: supervisord

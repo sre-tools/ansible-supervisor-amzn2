@@ -14,7 +14,7 @@
 #   its users to monitor and control a number of processes on \
 #   UNIX-like operating systems.
 # processname: supervisord
-# config: /etc/supervisord.conf
+# config: /etc/supervisor/supervisord.conf
 # config: /etc/sysconfig/supervisord
 # pidfile: /var/run/supervisord.pid
 #
@@ -44,7 +44,7 @@ prog=supervisord
 pidfile=${PIDFILE-/var/run/supervisord.pid}
 lockfile=${LOCKFILE-/var/lock/subsys/supervisord}
 STOP_TIMEOUT=${STOP_TIMEOUT-60}
-OPTIONS="${OPTIONS--c /etc/supervisord.conf}"
+OPTIONS="${OPTIONS--c /etc/supervisor/supervisord.conf}"
 RETVAL=0
 
 start() {
