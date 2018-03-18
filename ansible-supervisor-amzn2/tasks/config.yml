@@ -47,7 +47,11 @@
   service:
    name: "{{supervisor_service}}"
    enabled: yes
-  notify: supervisor start
 
+- name: start supervisord
+  command: supervisord
+
+- name: check status of supervisorctl status
+  command: supervisorctl status
 
 # vi:ts=2:sw=2:et:ft=yaml
