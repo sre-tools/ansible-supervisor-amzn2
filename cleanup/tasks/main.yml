@@ -2,10 +2,12 @@
 # reverse the supervisord from target machine
 # purpose is to make it clean slate
 - name: Kill supervisord pid
-  command: kill $(pgrep supervisord)
+  shell: kill $(pgrep supervisord) 2> /dev/null
+  ignore_errors: yes
 
 - name: Add supervisord to services that start on boot
   command: chkconfig --del supervisord
+  ignore_errors: yes
 
 - name: Amazon pip uninstall supervisor
   pip:

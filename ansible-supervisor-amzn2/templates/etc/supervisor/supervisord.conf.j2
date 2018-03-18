@@ -21,15 +21,15 @@ chmod=0755                 ; socket file mode (default 0700)
 
 [inet_http_server]         ; inet (TCP) server disabled by default
 port=9001        ; ip_address:port specifier, *:port for all iface
-;username=user              ; default is no username (open server)
-;password=123               ; default is no password (open server)
+username=austin              ; default is no username (open server)
+password=(sha)ca6a894923507d8d1cd1d558e92fc9925c186769               ; default is no password (open server)
 
 [supervisord]
-logfile=/tmp/supervisord.log ; main log file; default $CWD/supervisord.log
+logfile=/var/log/supervisor/supervisord.log ; main log file; default $CWD/supervisord.log
 logfile_maxbytes=50MB        ; max main logfile bytes b4 rotation; default 50MB
 logfile_backups=10           ; # of main logfile backups; 0 means none, default 10
-loglevel=info                ; log level; default info; others: debug,warn,trace
-pidfile=/tmp/supervisord.pid ; supervisord pidfile; default supervisord.pid
+loglevel=info                ; log level; default info; others: debug,warn,trace, error, critical, blather
+pidfile=/etc/supervisor/supervisord.pid ; supervisord pidfile; default supervisord.pid
 nodaemon=false               ; start in foreground if true; default false
 minfds=1024                  ; min. avail startup file descriptors; default 1024
 minprocs=200                 ; min. avail process descriptors;default 200

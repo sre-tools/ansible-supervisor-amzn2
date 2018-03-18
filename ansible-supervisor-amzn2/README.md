@@ -36,7 +36,8 @@ Refer this [playbook](https://github.com/sre-tools/ansible-supervisor-amzn2/blob
 #### Sample monitored program
 Refer this [welcome.conf](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/ansible-supervisor-amzn2/templates/etc/supervisor/conf_d/welcome.conf.j2)
 
-Note: extension should be is .conf
+Note: extension should be is .conf<br />
+logs for this sample app are stored in /var/log/welcome
 
 #### Include directory for monitoring
 ```
@@ -49,4 +50,5 @@ Python 2.7
 pip
 ansible 2.4
 ```
-**Read more on [Supervisor on AWS Linux AMI](https://ls3.io/post/supervisor_on_aws_linux_ami/)**
+**Read more on [Supervisor on AWS Linux AMI](https://ls3.io/post/supervisor_on_aws_linux_ami/)**<br />
+[Above link in local]()
