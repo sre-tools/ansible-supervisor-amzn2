@@ -1,4 +1,11 @@
 ---
+# reverse the supervisord from target machine
+# purpose is to make it clean slate
+- name: Kill supervisord pid
+  command: kill $(pgrep supervisord)
+
+- name: Add supervisord to services that start on boot
+  command: chkconfig --del supervisord
 
 - name: Amazon pip uninstall supervisor
   pip:
@@ -13,6 +20,9 @@
   with_items:
    - /etc/supervisor
    - /etc/init.d/supervisord
-   - /var/log/welcome
+
+- name: suggestion to reboot machine now
+  debug:
+   msg: "reboot your machine to take reversal effect"
 
 # vi:ts=2:sw=2:et:ft=yaml
