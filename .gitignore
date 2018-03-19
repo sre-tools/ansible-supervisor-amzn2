@@ -5,3 +5,4 @@
 .idea*
 *.retry
 .DS_Store
+gen_sha.py

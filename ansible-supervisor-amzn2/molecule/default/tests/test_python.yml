@@ -1,0 +1,6 @@
+---
+command:
+  python --version:
+    exit-status: 0
+    stderr: []
+    timeout: 10000
