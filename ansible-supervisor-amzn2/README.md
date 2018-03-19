@@ -13,11 +13,11 @@ control system
 #### Usage
 
 Apps are configured as [subprocesses](http://supervisord.org/subprocess.html#subprocesses) using the '.conf' file as per supervisor config [format](http://supervisord.org/configuration.html#file-format),
-refer [Include](https://github.com/sre-tools/ansible-supervisor-amzn2/tree/master/ansible-supervisor-amzn2#include-directory-for-monitoring) section below
+refer [Include](https://github.comcast.com/xh-pod/ansible-supervisor-amzn2/tree/master/ansible-supervisor-amzn2#include-directory-for-monitoring) section below
 
 
 #### Running a command
-<small>Refer this [playbook](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/playbook.yml)</small>
+<small>Refer this [playbook](https://github.comcast.com/xh-pod/ansible-supervisor-amzn2/blob/master/playbook.yml)</small>
 
 ```
 `---
@@ -28,7 +28,7 @@ refer [Include](https://github.com/sre-tools/ansible-supervisor-amzn2/tree/maste
 ```
 
 #### Sample monitored program
-Refer this [welcome.conf](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/ansible-supervisor-amzn2/templates/etc/supervisor/conf_d/welcome.conf.j2)<br/>
+Refer this [welcome.conf](https://github.comcast.com/xh-pod/ansible-supervisor-amzn2/blob/master/ansible-supervisor-amzn2/templates/etc/supervisor/conf_d/welcome.conf.j2)<br/>
 <small>**Notes**:</small><br />
 <sub>extension should be is .conf</sub><br />
 <sup>logs for this sample app are stored in /var/log/welcome</sup><br />
@@ -46,4 +46,4 @@ pip
 ansible 2.4
 ```
 **Read more on [Supervisor on AWS Linux AMI](https://ls3.io/post/supervisor_on_aws_linux_ami/)**<br />
-<sup>[Above link in local](https://github.com/sre-tools/ansible-supervisor-amzn2/tree/master/ansible-supervisor-amzn2/meta)</sup>
+<sup>[Above link in local](https://github.comcast.com/xh-pod/ansible-supervisor-amzn2/tree/master/ansible-supervisor-amzn2/meta)</sup>

@@ -11,7 +11,7 @@ control system
 
 
 #### Running a command
-<small>Refer this [playbook](https://github.com/sre-tools/ansible-supervisor-amzn2/blob/master/playbook.yml)</small><br/>
+<small>Refer this [playbook](https://github.comcast.com/xh-pod/ansible-supervisor-amzn2/blob/master/playbook.yml)</small><br/>
 ```
 `---
 - hosts: localhost
