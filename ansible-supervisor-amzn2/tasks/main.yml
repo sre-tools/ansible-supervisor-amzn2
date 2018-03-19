@@ -4,14 +4,14 @@
   include_vars: "{{ansible_os_family}}.yml"
   tags: always
 
-- include: install.yml
+- import_tasks: install.yml
   tags: supervisor_install
 
-- include: config.yml
+- import_tasks: config.yml
   tags: supervisor_config
 
-#- name: Start and Enable supervisor
-#  service:
+# - name: Start and Enable supervisor
+#   service:
 #    name="{{supervisor_service}}"
 #    enabled=yes
 #  when: supervisor_enabled

@@ -11,8 +11,8 @@
     group: "root"
     mode: "0755"
   with_items:
-   - /etc/supervisor
-   - /etc/supervisor/conf_d
+    - /etc/supervisor
+    - /etc/supervisor/conf_d
 
 - name: Copy supervisord.conf.j2 and welcome.conf.j2 from templates
   template:
@@ -22,10 +22,10 @@
     group: "root"
     mode: "0755"
   with_items:
-   - { src: templates/etc/supervisor/supervisord.conf.j2, dest: /etc/supervisor/supervisord.conf }
-   - { src: templates/etc/supervisor/conf_d/welcome.conf.j2, dest: /etc/supervisor/conf_d/welcome.conf }
+    - { src: templates/etc/supervisor/supervisord.conf.j2, dest: /etc/supervisor/supervisord.conf }
+    - { src: templates/etc/supervisor/conf_d/welcome.conf.j2, dest: /etc/supervisor/conf_d/welcome.conf }
 
-#- name: Generate Supervisord config from python script echo_supervisord_conf
+# - name: Generate Supervisord config from python script echo_supervisord_conf
 #  shell: echo_supervisord_conf > /etc/supervisord.conf
 
 - name: Supervisord initi script copying
@@ -40,7 +40,7 @@
     mode: "a+x"
 
 - name: Add supervisord to services that start on boot
-  command: chkconfig --add supervisord 
+  command: chkconfig --add supervisord
 
 - name: Add superviord on in chkconfig
   command: chkconfig supervisord on

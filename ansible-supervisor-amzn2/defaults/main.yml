@@ -23,9 +23,9 @@ supervisor_cfg_ctl_default: |
 #  It's a hash that represents commands that will be monitored by supervisor,
 #  which in turn, contains a set of parameters that will configure the program
 #  to be run.
-#  You should define this in a vars / group_vars file 
+#  You should define this in a vars / group_vars file
 #
-#supervisor_services:
+# supervisor_services:
 #  celery:
 #    command:        some_command
 #    directory:      /app/prefix

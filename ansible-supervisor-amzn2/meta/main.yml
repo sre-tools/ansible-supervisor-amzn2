@@ -4,11 +4,11 @@ galaxy_info:
   description: Ansible role for Supervisor Amazon Linux 2
   min_ansible_version: 2.4
   platforms:
-  - name: Amazon Linux 2
-    versions:
-      - Candidate
+    - name: Amazon Linux 2
+      versions:
+        - Candidate
   categories:
-  - system
-  - monitoring
+    - system
+    - monitoring
 
 dependencies: []
