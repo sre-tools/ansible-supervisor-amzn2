@@ -1,8 +1,15 @@
 ---
 
-## vi:ts=2:sw=2:et:ft=yaml
+- name: Install pip
+  yum:
+    state: installed
+    name: "python27-pip"
+  when: ansible_distribution == 'Amazon'
+
 - name: Amazon pip install supervisor
   pip:
     state: present
     name: "supervisor"
   when: ansible_distribution == 'Amazon'
+
+## vi:ts=2:sw=2:et:ft=yaml

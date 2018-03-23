@@ -1,0 +1,33 @@
+# Molecule managed
+---
+file:
+  /var/log/supervisor:
+    exists: true
+    owner: root
+    group: root
+    filetype: directory
+#  /var/log/welcome/welcome.err.log:
+#    exists: true
+#    owner: root
+#    group: root
+#    filetype: file
+#  /var/log/welcome/welcome.log:
+#    exists: true
+#    owner: root
+#    group: root
+#    filetype: file
+  /etc/supervisor/conf_d:
+    exists: true
+    owner: root
+    group: root
+    filetype: directory
+  /etc/supervisor/supervisord.conf:
+    exists: true
+    owner: root
+    group: root
+    filetype: file
+  /etc/supervisor/conf_d/welcome.conf:
+    exists: true
+    owner: root
+    group: root
+    filetype: file

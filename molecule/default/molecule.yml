@@ -28,8 +28,8 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance
-    image: centos:7
+  - name: amazon
+    image: amazonlinux:2017.09
 provisioner:
   name: ansible
   lint:
@@ -38,7 +38,7 @@ scenario:
   name: default
   test_sequence:
 #    - lint
-#    - destroy
+    - destroy
     - dependency
     - syntax
     - create
